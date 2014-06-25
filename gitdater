@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+# 
+# @file
+#   Git projects updater.
+#
+# @author
+#   Gerald Villorente, 2014
+#
+# @param
+#   The repositories directory.
+#
+# @description
+#   A bash script that updates all repo in a given directory.
+#
+
+# Target directory.
+REPO_DIR="/media/Data/Repositories/"
+
+# Navigate to the Repositories directory.
+# $REPO_DIR is the parent directory of all git projects.
+cd $REPO_DIR
+
+# Loop through all directories and update.
+for d in */ ; do
+    # Navigate inside Git folder.
+    cd "$d"
+    echo "Updating $d..."
+    git pull --all
+    echo "$d is up-to-date."
+    cd -
+done
+echo "All projects are now updated."
