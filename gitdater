@@ -22,11 +22,11 @@ cd $REPO_DIR
 
 # Loop through all directories and update.
 for d in */ ; do
-    # Navigate inside Git folder.
-    cd "$d"
-    echo "Updating $d..."
-    git pull --all
-    echo "$d is up-to-date."
-    cd -
+  # Navigate inside Git folder.
+  cd "$d"
+  echo "Updating $d..."
+  git pull --all
+  echo "$d is up-to-date."
+  cd -
 done
 echo "All projects are now updated."
