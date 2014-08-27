@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# 
+#
 # @file
 #   Git projects updater.
 #
@@ -14,7 +14,18 @@
 #
 
 # Target directory.
-REPO_DIR="/media/Data/Repositories/"
+# Validate the first parameter.
+if [ -z "$1" ]; then
+  echo "Please specify your Git directory."
+  exit
+else
+  if [ ! -d "$1" ]; then
+    echo "The path you specified does not exist."
+    exit
+  else
+    REPO_DIR=$1
+  fi
+fi
 
 # Navigate to the Repositories directory.
 # $REPO_DIR is the parent directory of all git projects.
